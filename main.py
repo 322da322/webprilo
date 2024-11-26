@@ -7,6 +7,12 @@ def index():
     print()
 
 
+@app.route("/reg_run")
+def index():
+    a = request.form['name']
+    print(a)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
