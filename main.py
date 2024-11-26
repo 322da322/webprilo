@@ -4,7 +4,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("hello.html")
-    print(123123123)
+    print(12312312123213213)
 
 
 @app.route("/reg_run")
