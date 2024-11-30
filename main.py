@@ -19,7 +19,7 @@ class Server:
 
 
     def home(self):
-        return "Hello world"
+        return "Хуй"
 
 
 if __name__== '__main__':
