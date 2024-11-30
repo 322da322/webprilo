@@ -6,10 +6,9 @@
 <body>
     <h1>привет</h1>
 </body>
-<form>
-  <input type="text">
-  <a href="http://127.0.0.1:5000/reg_run">
-    <div class="button"><div class="text_button">Зарегистрироваться</div></div>
-</a>
-</form>
+<form action="/input/" method="post">
+    <input name="user_id" type="text" size="40" required><br>
+    <label>Введите айди гильдии:</label>
+    <input name="server_id" type="text" size="40">
+ </form>
 </html>

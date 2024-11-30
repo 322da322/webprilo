@@ -1,18 +1,26 @@
 from flask import Flask, render_template
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-    return render_template("hello.html")
-    print(12312312123213213)
-
-
-@app.route("/reg_run")
-def index():
-    a = request.form['name']
-    print(a)
+from flask import request # requests - для принятие данных(вроде бы)
+import time
 
 
 
-if __name__ == '__main__':
+
+
+class Server:
+    def __init__(self, host, port):
+        self.host = host
+        self.port = port
+
+
+        self.app = Flask(__name__)
+        self.app.add_url_rule("/", view_func=self.home())
+    
+
+
+
+    def home(self):
+        return "Hello world"
+
+
+if __name__== '__main__':
     app.run(debug=True)
