@@ -22,10 +22,11 @@ class Server:
     
 
     def run_server(self):
-        self.server = threading.Thread(target=self.app.run, kwargs={"host": self.host, "port": self.port})
+        self.app.run(debug=True)
+        #self.server = threading.Thread(target=self.app.run, kwargs={"host": self.host, "port": self.port})
         print(self.host, self.port)
-        self.server.start()
-        return self.server
+        #self.server.start()
+        #return self.server
 
 
 
@@ -51,7 +52,7 @@ if __name__== '__main__':
 
     args = parser.parse_args()
 
-    config = config_par("C:\\Users\\alexh\\Desktop\\web\\config.txt")
+    config = config_par("config.txt")
 
     server_host = config["HOST"]
     server_port = int(config["PORT"])
