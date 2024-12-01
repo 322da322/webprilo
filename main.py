@@ -18,7 +18,7 @@ class Server:
 
         self.app.add_url_rule("/shutdown", view_func=self.shutdown)
         self.app.add_url_rule("/", view_func=self.home)
-        self.app.add_url_rule("/home", view_func=self.home)
+        self.app.add_url_rule("/404", view_func=self.gifs)
     
 
     def run_server(self):
@@ -43,7 +43,11 @@ class Server:
 
     def home(self):
         
-        return render_template("hello.html",r="Russia")
+        return render_template("home.html")
+    
+
+    def gifs(self):
+        return render_template("test.html")
 
 
 if __name__== '__main__':
