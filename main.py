@@ -43,11 +43,14 @@ class Server:
 
     def home(self):
         
-        return render_template("home.html")
+        return render_template("login.html")
     
 
     def gifs(self):
         return render_template("test.html")
+    
+
+
 
 
 if __name__== '__main__':
