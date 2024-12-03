@@ -18,14 +18,15 @@ class Server:
 
         self.app.add_url_rule("/shutdown", view_func=self.shutdown)
         self.app.add_url_rule("/", view_func=self.home)
-        self.app.add_url_rule("/home", view_func=self.home)
+        self.app.add_url_rule("/404", view_func=self.gifs)
     
 
     def run_server(self):
-        self.server = threading.Thread(target=self.app.run, kwargs={"host": self.host, "port": self.port})
+        self.app.run(debug=True)
+        #self.server = threading.Thread(target=self.app.run, kwargs={"host": self.host, "port": self.port})
         print(self.host, self.port)
-        self.server.start()
-        return self.server
+        #self.server.start()
+        #return self.server
 
 
 
@@ -42,7 +43,14 @@ class Server:
 
     def home(self):
         
-        return render_template("hello.html",r="Russia")
+        return render_template("login.html")
+    
+
+    def gifs(self):
+        return render_template("test.html")
+    
+
+
 
 
 if __name__== '__main__':
@@ -51,7 +59,7 @@ if __name__== '__main__':
 
     args = parser.parse_args()
 
-    config = config_par("C:\\Users\\alexh\\Desktop\\web\\config.txt")
+    config = config_par("config.txt")
 
     server_host = config["HOST"]
     server_port = int(config["PORT"])
