@@ -2,6 +2,6 @@ body {
     background-image:url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN295N2YyNzV2aHo0NjAwcnQyeHhzcmdlbzNpNTh6M3U3cnBjcDlobSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YyKPbc5OOTSQE/giphy.gif');
     background-position: 35% 30%;
     background-size: 100%;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-color: #cccccc;
 }

@@ -17,7 +17,7 @@ class Server:
         self.app = Flask(__name__)
 
         self.app.add_url_rule("/shutdown", view_func=self.shutdown)
-        self.app.add_url_rule("/", view_func=self.home)
+        self.app.add_url_rule("/", view_func=self.home, methods=["GET", "POST"])
         self.app.add_url_rule("/404", view_func=self.gifs)
     
 
@@ -42,8 +42,12 @@ class Server:
 
 
     def home(self):
-        
-        return render_template("login.html")
+        output = None
+        if request.method == "POST":
+            user_input = request.form.get("user_input")  # Получаем данные из формы
+            output = user_input  # Обрабатываем данные
+            
+        return render_template("file_input.html", output=output)
     
 
     def gifs(self):
