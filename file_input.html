@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='steles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма ввода</title>
+</head>
+<body>
+    <h1>Введите данные</h1>
+    <form method="POST" action="/">
+        <input type="text" name="user_input" placeholder="Введите текст" required>
+        <button type="submit">Отправить</button>
+    </form>
+    {% if output %}
+        <h2>Вы ввели: {{ output }}</h2>
+        <h3>Ема ты крыса, на Саню быкуешь за спиной? Очкошник ты в лицо ему что он: {{output}}</h3>
+        <h3>Я ожидал разного, что Саня патриот, пилот, программист, но никак не: {{output}}</h3>
+    {% endif %}
+</body>
+</html>
