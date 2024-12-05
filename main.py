@@ -46,7 +46,7 @@ class Server:
         if request.method == "POST":
             user_input = request.form.get("user_input")  # Получаем данные из формы
             output = user_input  # Обрабатываем данные
-            
+            print(output)
         return render_template("file_input.html", output=output)
     
 
@@ -58,18 +58,10 @@ class Server:
 
 
 if __name__== '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--config", type=str, dest="config")
-
-    args = parser.parse_args()
-
-    config = config_par("config.txt")
-
-    server_host = config["HOST"]
-    server_port = int(config["PORT"])
+    
 
     server = Server(
-        host=server_host,
-        port=server_port
+        host=None,
+        port=None
     )
     server.run_server()
