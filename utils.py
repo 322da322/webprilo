@@ -6,3 +6,4 @@ def config_par(config_path):
             k, v = line.split(' = ')
             config[k] = v.split('\n')[0].replace(' ', '')
         return config
+    

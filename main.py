@@ -1,11 +1,10 @@
 from flask import Flask, render_template
 from flask import request # requests - для принятие данных(вроде бы)
-import argparse
+from adduser import DB
 from utils import config_par
 import threading
-
-
-
+import argparse
+db = DB()
 
 
 class Server:
@@ -41,13 +40,26 @@ class Server:
 
 
 
+
+
+
+
+#<input type="email" name="email" placeholder="Email" required=""> file_input.html
     def home(self):
-        output = None
+        print(123)
         if request.method == "POST":
-            user_input = request.form.get("user_input")  # Получаем данные из формы
-            output = user_input  # Обрабатываем данные
-            print(output)
-        return render_template("file_input.html", output=output)
+            print(1111111111111111111)
+            with open('C:\\Users\\alexh\\Desktop\\web\\filess\\numers_user.text', 'r+', encoding='utf-8') as f:
+                user_id = f.read()
+                f.close()
+            with open('C:\\Users\\alexh\\Desktop\\web\\filess\\numers_user.text', 'w+', encoding='utf-8') as f:
+                f.write(str(int(user_id) + 1))
+                f.close()
+            user_name = request.form.get("username")  # Получаем данные из формы
+            user_passsword = request.form.get("password") 
+            print(user_name, user_passsword)
+            db.add_user(id= int(user_id), username= user_name, password= user_passsword)
+        return render_template("file_input.html")
     
 
     def gifs(self):
