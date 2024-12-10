@@ -19,6 +19,7 @@ class Server:
         self.app.add_url_rule("/shutdown", view_func=self.shutdown)
         self.app.add_url_rule("/", view_func=self.home, methods=["GET", "POST"])
         self.app.add_url_rule("/404", view_func=self.gifs)
+        self.app.add_url_rule("/train", view_func=self.input_train, methods=["GET", "POST"])
     
 
     def run_server(self):
@@ -52,6 +53,15 @@ class Server:
 
     def gifs(self):
         return render_template("test.html")
+    
+    def input_train(self):
+        output = None
+        
+        if request.method == "POST":
+            user_input = request.form.get("user_input")  # Получаем данные из формы
+            output = user_input  # Обрабатываем данные
+            print(output)
+        return render_template("rofl.html",output=output)
     
 
 
