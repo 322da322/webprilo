@@ -17,8 +17,7 @@ class Server:
 
         self.app.add_url_rule("/shutdown", view_func=self.shutdown)
         self.app.add_url_rule("/", view_func=self.home, methods=["GET", "POST"])
-        self.app.add_url_rule("/404/", view_func=self.gifs, methods=["POST"])
-        self.app.add_url_rule("/reg/", view_func=self.reg, methods=["POST"])
+        self.app.add_url_rule("/404", view_func=self.gifs)
     
 
     def run_server(self):
@@ -60,6 +59,15 @@ class Server:
         print(user_name, user_passsword)
         db.add_user(id= int(user_id), username= user_name, password= user_passsword)
         return render_template("home.html", user_name = user_name)
+    
+    def input_train(self):
+        output = None
+        
+        if request.method == "POST":
+            user_input = request.form.get("user_input")  # Получаем данные из формы
+            output = user_input  # Обрабатываем данные
+            print(output)
+        return render_template("rofl.html",output=output)
     
 
 
