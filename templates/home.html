@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
+    <title>Главная страница</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}" />
 </head>
 <body>
-    <p>Try to run /404</p>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Мой Сайт</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Услуги</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h2>Добро пожаловать на наш сайт</h2>
+                <p>Здесь вы найдёте всё, что вам нужно.</p>
+                <a href="#" class="btn">Узнать больше</a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Мой Сайт. Все права защищены.</p>
+        </div>
+    </footer>
 </body>
 </html>
